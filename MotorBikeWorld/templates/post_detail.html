@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ bikepost.title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ bikepost.author }} | {{ bikepost.created_on }}</p>
+        <img src="{{bikepost.image.image.url}}" style='width:-webkit-fill-available'alt="{{bikepost.image.alt}}" title="{{bikepost.image.alt}}"/>
+
+        <p class="card-text ">{{ bikepost.content | safe }}</p>
+
+      </div>
+    </div>
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+  </div>
+</div>
+
+{% endblock content %}
